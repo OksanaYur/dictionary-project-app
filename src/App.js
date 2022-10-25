@@ -14,7 +14,8 @@ export default function App() {
         <Dictionary />
        </main>
     <footer className="text-center">
-    Coded by Oksana Yuriychuk
+    Coded by {""}
+    <a href="">Oksana Yuriychuk</a>
     </footer>
        </div>
        </div>
