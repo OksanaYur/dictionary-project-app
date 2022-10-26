@@ -15,7 +15,7 @@ export default function App() {
        </main>
     <footer className="text-center">
     Coded by {""}
-    <a href="https://github.com/OksanaYur/dictionary-project-app" target="_blank">Oksana Yuriychuk</a>
+    <a href="https://github.com/OksanaYur/dictionary-project-app" target="_blank" rel="noreferrer">Oksana Yuriychuk</a>
     </footer>
        </div>
        </div>
