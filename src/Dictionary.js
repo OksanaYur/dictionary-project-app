@@ -6,7 +6,7 @@ import Photos from "./Photos";
 
 export default function Dictionary () {
 
-    let [keyword, setKeyword] = useState("Ukraine"); 
+    let [keyword, setKeyword] = useState("dictionary"); 
     let [results, setResults] = useState(null);
     let [loaded, setLoaded] = useState(false);
     let [photos, setPhotos] = useState(null);
