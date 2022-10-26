@@ -5,32 +5,50 @@ import Results from "./Results";
 
 export default function Dictionary () {
 
-    let [keyword, setKeyword] = useState(""); 
+    let [keyword, setKeyword] = useState("bravery"); 
     let [results, setResults] = useState(null);
+    let [loaded, setLoaded] = useState(false);
 
 function handleResponse(response) {
 setResults(response.data[0]);
 }
+function search() {
+ //documentation https://dictionaryapi.dev
 
-function search(event) {
-    event.preventDefault();
-    //documentation https://dictionaryapi.dev
-
-let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
-axios.get(apiUrl).then(handleResponse);
+ let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
+ axios.get(apiUrl).then(handleResponse);
 }
 
+function handleSubmit(event) {
+    event.preventDefault();
+    search();
+   
+}
 
 function handleKeywordChange(event) {
 setKeyword(event.target.value);
 }
+function load() {
+    setLoaded(true);
+    search();
+}
 
+
+if (loaded) {
     return (
         <div className="Dictionary">
-<form className="form" onSubmit={search}>
+<section>
+    <h1>What are you looking for? </h1>
+<form className="form" onSubmit={handleSubmit}>
         <input type="search" onChange={handleKeywordChange} />
 </form>
+<div className="hint"> suggested words: brave, independence, freedom ...</div>
+</section>
 <Results results={results} />
         </div>
-    )
+    );
+} else {
+    load();
+    return "Loading...";
+}
 }
